@@ -15,10 +15,10 @@ echo "Processes,Size,Algorithm,Latency" > bcast_algorithms_thin.csv
 repetitions=5
 
 # Array of algorithm numbers to test
-algorithms=(1 2 3 4)
+algorithms=(1 2 3)
 
 # Ciclo esterno per il numero di processori
-for processes in {2..48..2}
+for processes in {2..20..2}
 do
     # Ciclo interno per la dimensione del messaggio da 2^1 a 2^20
     for size_power in {1..20}
