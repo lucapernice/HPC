@@ -85,11 +85,6 @@ int main(int argc, char *argv[]) {
     double local_x_L = x_L + rank * (x_R - x_L) / size;
     double local_y_L = y_L;
 
-    // Print parameters and settings
-    printf("Process %d: Image parameters:\n", rank);
-    printf("n_x = %d, n_y = %d, x_L = %lf, y_L = %lf, x_R = %lf, y_R = %lf, I_max = %d\n", n_x, n_y, x_L, y_L, x_R, y_R, I_max);
-    printf("Process %d: Local dimensions: local_n_x = %d, local_n_y = %d\n", rank, local_n_x, local_n_y);
-    printf("Process %d: Matrix type: %s\n", rank, matrix_type == sizeof(short int) ? "short int" : "char");
 
 #pragma omp parallel for collapse(2)
     for (int j = 0; j < local_n_y; j++) {
