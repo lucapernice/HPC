@@ -17,9 +17,9 @@ mpicc -o merged merged.c -fopenmp -lm
 # Function to run OMP weak scaling tests
 function run_omp_weak_scaling {
     local executable=$1
-    local sizes=(200 400 600 800 1000)  # Adjust the problem sizes as needed
+    local sizes=(200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400)  # Adjust the problem sizes as needed
     local max_threads=32  # Maximum number of OMP threads
-    local repetitions=3  # Number of repetitions for each test
+    local repetitions=5  # Number of repetitions for each test
     for size in "${sizes[@]}"; do
         #echo "Running OMP weak scaling test for problem size $size"
         for ((threads=1; threads<=$max_threads; threads*=2)); do
@@ -43,10 +43,10 @@ function run_omp_weak_scaling {
 # Function to run OMP strong scaling tests
 function run_omp_strong_scaling {
     local executable=$1
-    local size=1000  # Problem size remains constant
+    local size=800  # Problem size remains constant
     local max_threads=32  # Maximum number of OMP threads
     local repetitions=3  # Number of repetitions for each test
-    for ((threads=1; threads<=$max_threads; threads*=2)); do
+    for ((threads=1; threads<=$max_threads; threads++)); do
         #echo "Running OMP strong scaling test with $threads threads"
         export OMP_NUM_THREADS=$threads
         #echo "OMP_NUM_THREADS=$threads"
