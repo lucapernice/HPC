@@ -62,6 +62,6 @@ function run_mpi_strong_scaling {
 
 # Run MPI scaling tests
 #echo "Running MPI scaling tests..."
-run_mpi_weak_scaling ./your_executable_name
-run_mpi_strong_scaling ./your_executable_name
+run_mpi_weak_scaling ./merged
+run_mpi_strong_scaling ./merged
 
