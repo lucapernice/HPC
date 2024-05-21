@@ -18,7 +18,7 @@ repetitions=5
 algorithms=(1 2 3)
 
 # Ciclo esterno per il numero di processori
-for processes in {2..20..2}
+for processes in {2..48..2}
 do
     # Ciclo interno per la dimensione del messaggio da 2^1 a 2^20
     for size_power in {1..20}
